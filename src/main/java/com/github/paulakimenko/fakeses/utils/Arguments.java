@@ -9,7 +9,7 @@ public final class Arguments {
 
     public static Arguments getFromEnviroment() {
         return new Arguments(
-                Integer.parseInt(System.getProperty(NAMESPACE + ".port", "8000")),
+                Integer.parseInt(System.getProperty(NAMESPACE + ".port", "8567")),
                 Integer.parseInt(System.getProperty(NAMESPACE + ".threadcount", "10")),
                 System.getProperty(NAMESPACE + ".workdir", "./messages")
         );

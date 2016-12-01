@@ -9,7 +9,7 @@ java ${JAVA_OPTS} \
     -Dfakeses.port=${PORT} \
     -Dfakeses.threadcount=${THREAD_COUNT} \
     -Dfakeses.workdir=${WORK_DIR} \
-    -jar /sesmock.jar &
+    -jar /fake-ses.jar &
 NODE_PID=$!
 
 trap shutdown SIGTERM SIGINT
