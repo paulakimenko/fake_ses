@@ -1,0 +1,13 @@
+{
+  "id": "85e17c36-080e-42b7-8cf5-d98cfd9a93b7",
+  "action": "SendEmail",
+  "subject": "Hello email tester 2!",
+  "source": "sender@example.com",
+  "destination": [
+    "example@gmail.com"
+  ],
+  "reply_to_addresses": [
+    "sender@example.com"
+  ],
+  "date_received": 1480350000
+}

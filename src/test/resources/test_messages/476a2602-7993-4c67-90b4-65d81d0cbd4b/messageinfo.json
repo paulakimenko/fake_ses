@@ -1,0 +1,13 @@
+{
+  "id": "476a2602-7993-4c67-90b4-65d81d0cbd4b",
+  "action": "SendRawEmail",
+  "subject": "Hello email tester!",
+  "source": "sender@example.com",
+  "destination": [
+    "example@gmail.com"
+  ],
+  "reply_to_addresses": [
+    "sender@example.com"
+  ],
+  "date_received": 1480349900
+}
