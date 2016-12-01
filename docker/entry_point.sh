@@ -6,9 +6,9 @@ function shutdown {
 }
 
 java ${JAVA_OPTS} \
-    -Dsesmock.port=${PORT} \
-    -Dsesmock.threadcount=${THREAD_COUNT} \
-    -Dsesmock.workdir=${WORK_DIR} \
+    -Dfakeses.port=${PORT} \
+    -Dfakeses.threadcount=${THREAD_COUNT} \
+    -Dfakeses.workdir=${WORK_DIR} \
     -jar /sesmock.jar &
 NODE_PID=$!
 

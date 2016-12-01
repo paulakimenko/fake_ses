@@ -4,7 +4,7 @@ ENV PORT 8000
 ENV THREAD_COUNT 8
 ENV WORK_DIR ./messages
 
-ADD /sesmock-*-jar-with-dependencies.jar /sesmock.jar
+ADD /fake-ses-*-jar-with-dependencies.jar /fake-ses.jar
 
 COPY /entry_point.sh //
 RUN chmod +x /entry_point.sh
