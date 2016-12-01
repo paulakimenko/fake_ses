@@ -7,6 +7,23 @@
     <groupId>com.github.paulakimenko</groupId>
     <artifactId>fake-ses</artifactId>
     <version>0.1</version>
+    <description>Simple service to mock Amazon SES</description>
+    <url>https://github.com/paulakimenko/fake_ses</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Pavel Akimenko</name>
+            <email>paulakimenko@gmail.com</email>
+        </developer>
+    </developers>
 
     <build>
         <plugins>
@@ -49,7 +66,7 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>0.4.13</version>
                 <configuration>
-                    <imageName>paulakimenko/fakeses</imageName>
+                    <imageName>paulakimenko/fake_ses</imageName>
                     <dockerDirectory>docker</dockerDirectory>
                     <imageTags>
                         <imageTag>${project.version}</imageTag>
