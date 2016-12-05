@@ -6,6 +6,7 @@ ENV WORK_DIR ./messages
 
 ADD /fake-ses-*-jar-with-dependencies.jar /fake-ses.jar
 
+COPY /public /resources/public
 COPY /entry_point.sh //
 RUN chmod +x /entry_point.sh
 

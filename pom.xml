@@ -78,6 +78,10 @@
                             <directory>${project.build.directory}</directory>
                             <include>${project.build.finalName}-jar-with-dependencies.jar</include>
                         </resource>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>resources</directory>
+                        </resource>
                     </resources>
                 </configuration>
             </plugin>
