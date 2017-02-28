@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" type="text/css" href="/css/siimple.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="/js/jquery-3.1.1.min.js"></script>
+  <script src="/js/app.js"></script>
+</head>
+<body>
+<div class="wrapper">
+  <h1 class="app-title">Fake SES Dashboard</h1>
+
+  <div class="controlls">
+    <button class="btn delete-all">Delete All Messages</button>
+  </div>
+
+  <div class="messages grid grid-fluid">
+
+    <div class="message-headers">
+      <div class="row">
+        <div class="col-3">
+          <strong>Subject</strong>
+        </div>
+        <div class="col-3">
+          <strong>Sender</strong>
+        </div>
+        <div class="col-3">
+          <strong>Destination</strong>
+        </div>
+        <div class="col-3">
+          <strong>Received</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="message-rows"></div>
+
+  </div>
+
+  <div class="popup">
+    <div class="message-overview popup-wrapper">
+      <span class="close">X</span>
+      <div class="message-base-details grid grid-fluid">
+        <div class="row subject">
+          <div class="col-3">
+            <strong>Subject :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row received">
+          <div class="col-3">
+            <strong>Received :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row ses-action">
+          <div class="col-3">
+            <strong>SES Action :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row sender">
+          <div class="col-3">
+            <strong>Sender :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row destination">
+          <div class="col-3">
+            <strong>Destination :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row reply-to">
+          <div class="col-3">
+            <strong>Reply To :</strong>
+          </div>
+          <div class="col-9 value"></div>
+        </div>
+        <div class="row message-content"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

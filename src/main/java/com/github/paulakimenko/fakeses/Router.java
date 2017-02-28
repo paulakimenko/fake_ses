@@ -30,7 +30,7 @@ public class Router {
         exception(IllegalArgumentException.class, ErrorHandlers.badRequestHandler);
         exception(IllegalStateException.class, ErrorHandlers.badRequestHandler);
 
-        staticFiles.externalLocation("./public");
+        staticFiles.externalLocation("./resources/public");
 
         post("/", sesController::postMessage);
 
