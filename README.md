@@ -1,6 +1,6 @@
-# Fake SES  
+# Fake SES
 
-Inspired by [Fake DynamoDB] [fake_dynamo] and [Fake SQS] [fake_sqs]    
+Inspired by [Fake DynamoDB][fake_dynamo] and [Fake SQS][fake_sqs]
 
 ## Running
 
@@ -11,6 +11,10 @@ $ docker run -it -p 8567:8567 paulakimenko/fake_ses
 ## Usage
 
 Set endpoint in your AWS client config to this service.
+
+You can access the dashboard at `http://localhost:8567/dashboard`.
+
+There are also API endpoints:
 
 - to see all messages 
 ```
@@ -28,7 +32,9 @@ DELETE /api/messages
  
 ## Development
 
-TODO 
+Requires Java 8.
 
-  [fake_dynamo]: https://github.com/ananthakumaran/fake_dynamo 
+Run `mvn clean package docker:build` to build the docker image.
+
+  [fake_dynamo]: https://github.com/ananthakumaran/fake_dynamo
   [fake_sqs]: https://github.com/iain/fake_sqs
