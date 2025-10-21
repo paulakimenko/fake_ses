@@ -141,7 +141,9 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Add JAXB modules for tests on JDK 11+ (RestAssured 2.x needs javax.xml.bind) -->
+       <!-- Add JAXB modules for tests on JDK 11+.
+           Note: legacy com.jayway RestAssured 2.x requires javax.xml.bind at runtime on newer JDKs;
+           we also use io.rest-assured json-schema-validator 5.x alongside it. -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>

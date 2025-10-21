@@ -12,6 +12,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.reset;
 import static spark.Spark.port;
 import static spark.Spark.stop;
+import static spark.Spark.awaitStop;
 
 public abstract class BaseControllerTest extends BaseSESMockTest {
     private static final int PORT = 8111;
@@ -28,14 +29,14 @@ public abstract class BaseControllerTest extends BaseSESMockTest {
         daoMock = mock(MessagesDAO.class);
         // Ensure Spark is fully stopped before starting to avoid port/route state issues
         stop();
-        try { Thread.sleep(100); } catch (InterruptedException ignored) {}
+        awaitStop();
         startApp();
     }
 
     @AfterClass
     public static void tearDownClass() {
         stop();
-        try { Thread.sleep(100); } catch (InterruptedException ignored) {}
+        awaitStop();
     }
 
     @After
