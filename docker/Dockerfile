@@ -11,7 +11,7 @@ COPY src ./src
 COPY resources ./resources
 RUN mvn -q -e -DskipTests=false package
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:8-jre
 
 ENV PORT=8567
 ENV THREAD_COUNT=8
