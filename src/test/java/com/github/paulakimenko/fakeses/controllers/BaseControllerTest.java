@@ -26,12 +26,16 @@ public abstract class BaseControllerTest extends BaseSESMockTest {
     @BeforeClass
     public static void setUpClass() {
         daoMock = mock(MessagesDAO.class);
+        // Ensure Spark is fully stopped before starting to avoid port/route state issues
+        stop();
+        try { Thread.sleep(100); } catch (InterruptedException ignored) {}
         startApp();
     }
 
     @AfterClass
     public static void tearDownClass() {
         stop();
+        try { Thread.sleep(100); } catch (InterruptedException ignored) {}
     }
 
     @After
