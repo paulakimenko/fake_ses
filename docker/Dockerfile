@@ -19,20 +19,20 @@ ENV WORK_DIR=/home/appuser/app/messages
 
 COPY --from=builder /build/target/fake-ses-*-jar-with-dependencies.jar /fake-ses.jar
 
-# Static assets served from external location
-COPY --from=builder /build/resources/public /resources/public
+# Static assets served from external location (Spark expects ./resources/public from WORKDIR)
+COPY --from=builder /build/resources/public /home/appuser/app/resources/public
 
 # Entrypoint
 COPY docker/entry_point.sh /entry_point.sh
 RUN chmod +x /entry_point.sh \
 	&& adduser --disabled-password --gecos "" appuser \
 	&& mkdir -p /home/appuser/app \
-	&& chown -R appuser:appuser /resources /entry_point.sh /fake-ses.jar /home/appuser/app
+	&& chown -R appuser:appuser /home/appuser/app/resources /entry_point.sh /fake-ses.jar /home/appuser/app
 
 WORKDIR /home/appuser/app
 USER appuser
 
-EXPOSE $PORT
+EXPOSE 8567
 
 ENTRYPOINT ["/entry_point.sh"]
 
