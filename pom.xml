@@ -6,7 +6,7 @@
 
     <groupId>com.github.paulakimenko</groupId>
     <artifactId>fake-ses</artifactId>
-    <version>0.3</version>
+    <version>0.3.1</version>
     <description>Simple service to mock Amazon SES</description>
     <url>https://github.com/paulakimenko/fake_ses</url>
 
