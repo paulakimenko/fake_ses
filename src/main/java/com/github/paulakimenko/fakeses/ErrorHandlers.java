@@ -7,6 +7,7 @@ import com.github.paulakimenko.fakeses.utils.Json;
 import spark.ExceptionHandler;
 import spark.Request;
 import spark.Response;
+import com.github.paulakimenko.fakeses.ex.NotFoundException;
 
 import java.util.Collections;
 
@@ -15,7 +16,7 @@ import static java.lang.String.format;
 public final class ErrorHandlers {
     private ErrorHandlers() {}
 
-    public static ExceptionHandler badRequestHandler = (Exception exception, Request request, Response response) -> {
+    public static ExceptionHandler<Exception> badRequestHandler = (Exception exception, Request request, Response response) -> {
         Error error = new Error()
                 .setTitle("Bad Request.")
                 .setDetail(exception.getMessage());
@@ -24,7 +25,7 @@ public final class ErrorHandlers {
         response.status(400);
     };
 
-    public static ExceptionHandler notFoundHandler = (Exception exception, Request request, Response response) -> {
+    public static ExceptionHandler<NotFoundException> notFoundHandler = (NotFoundException exception, Request request, Response response) -> {
         Error error = new Error()
                 .setTitle("Not found.")
                 .setDetail(exception.getMessage());
@@ -33,10 +34,8 @@ public final class ErrorHandlers {
         response.status(404);
     };
 
-    public static ExceptionHandler invalidActionHandler = (Exception exception, Request request, Response response) -> {
-        String action = exception instanceof InvalidActionException
-                ? ((InvalidActionException) exception).getActionName()
-                : "unknown";
+    public static ExceptionHandler<InvalidActionException> invalidActionHandler = (InvalidActionException exception, Request request, Response response) -> {
+        String action = exception.getActionName() != null ? exception.getActionName() : "unknown";
         response.type(Type.APPLICATION_XML);
         response.body(sesError("InvalidAction", "Invalid action: " + action));
         response.status(400);

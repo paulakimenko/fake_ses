@@ -90,7 +90,7 @@ public final class RawMessageParser {
                 if (part.isMimeType(Type.TEXT_ALL)) {
                     streamBuilder.add(part);
                 } else if (part.isMimeType(MULTIPART_ALL)) {
-                    streamOfMultipart((Multipart) part.getContent()).forEach(streamBuilder.add(part));
+                    streamOfMultipart((Multipart) part.getContent()).forEach(streamBuilder::add);
                 }
             }
         } catch (MessagingException | IOException e) {

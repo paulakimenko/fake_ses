@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import static java.util.Collections.singletonList;
 import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class RawMessageParserTest extends BaseSESMockTest {
     @Test

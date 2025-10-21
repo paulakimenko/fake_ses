@@ -3,9 +3,7 @@ package com.github.paulakimenko.fakeses.dao;
 import com.github.paulakimenko.fakeses.models.Action;
 import com.github.paulakimenko.fakeses.models.Message;
 import org.junit.FixMethodOrder;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runners.MethodSorters;
 
 import java.nio.file.Path;
@@ -16,7 +14,8 @@ import java.util.UUID;
 
 import static java.util.Collections.singletonList;
 import static org.hamcrest.Matchers.*;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -105,9 +104,6 @@ public class MessagesFileDAOTest extends BaseFileDAOTest {
             .setReplyToAddresses(singletonList("sender@example.com"))
             .setTextContent("Hello, email tester!\n");
 
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
-
     @Test
     public void itShouldCreateMessage() {
         Path messageDir = Paths.get(NEW_MESSAGE_OBJ.getId().toString());
@@ -123,18 +119,20 @@ public class MessagesFileDAOTest extends BaseFileDAOTest {
 
     @Test
     public void itShouldReturnErrorWhenMessageNullGiven() {
-        thrown.expect(NullPointerException.class);
-        thrown.expectMessage(equalTo("Message is null!"));
-
-        testDao.createMessage(null);
+        NullPointerException ex = assertThrows(
+                NullPointerException.class,
+                () -> testDao.createMessage(null)
+        );
+        assertThat(ex.getMessage(), equalTo("Message is null!"));
     }
 
     @Test
     public void itShouldReturnErrorWhenMessageWithoutIdGiven() {
-        thrown.expect(NullPointerException.class);
-        thrown.expectMessage(equalTo("Message id is null!"));
-
-        testDao.createMessage(new Message());
+        NullPointerException ex = assertThrows(
+                NullPointerException.class,
+                () -> testDao.createMessage(new Message())
+        );
+        assertThat(ex.getMessage(), equalTo("Message id is null!"));
     }
 
     @Test

@@ -56,14 +56,14 @@ public final class MessageFilter {
                 "text_contains",
                 filterValue ->
                         message ->
-                                message.getTextContent().toLowerCase().contains(filterValue.get().toLowerCase())
+                                toLowerOrEmpty(message.getTextContent()).contains(filterValue.get().toLowerCase())
         );
 
         FILTERS_MAP.put(
                 "html_contains",
                 filterValue ->
                         message ->
-                                message.getHtmlContent().toLowerCase().contains(filterValue.get().toLowerCase())
+                                toLowerOrEmpty(message.getHtmlContent()).contains(filterValue.get().toLowerCase())
         );
     }
 
@@ -90,4 +90,8 @@ public final class MessageFilter {
             throw new IllegalArgumentException(e);
         }
     }
+
+        private static String toLowerOrEmpty(String s) {
+                return s == null ? "" : s.toLowerCase();
+        }
 }

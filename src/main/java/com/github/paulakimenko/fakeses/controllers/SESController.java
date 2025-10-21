@@ -30,8 +30,8 @@ public class SESController {
     public Object postMessage(Request request, Response response) throws Exception {
         log.debug("Received SES message, params '{}', query '{}'", request.params(), request.queryString());
 
-        UUID uuid = UUID.randomUUID();
-        Message message = parseMessage(UUID.randomUUID(), request.queryParams(), request.queryMap());
+    UUID uuid = UUID.randomUUID();
+    Message message = parseMessage(uuid, request.queryParams(), request.queryMap());
         messagesDAO.createMessage(message);
 
         response.status(200);
