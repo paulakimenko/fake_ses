@@ -66,6 +66,20 @@ docker build -f docker/Dockerfile --build-arg MAVEN_OPTS="-DskipTests" -t paulak
 - Frameworks: SparkJava, Gson, Jetty
 - Data storage: simple JSON files in WORK_DIR
 
+### Smoke test script
+
+You can exercise the main flow locally with:
+
+```
+scripts/smoke_test.sh
+```
+
+Environment overrides: IMAGE, PORT, HOST, NAME. Example:
+
+```
+IMAGE=paulakimenko/fake_ses:0.3 PORT=8567 scripts/smoke_test.sh
+```
+
 ### Local run (without Docker)
 
 1) Build a fat jar:
